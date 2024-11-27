@@ -30,12 +30,12 @@
 Скачан образ vault командой `docker pull hashicorp/vault`.  
 Проверено, что образ vault появился - `docker images`.
 
-![Образ vault]( 'Образ vault')
+![Образ vault](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/vault_image.png 'Образ vault')
 
 Создан контейнер на основе образа vault - `docker run -d hashicorp/vault`.  
 Проверено, что контейнер vault появился - `docker ps -a`.
 
-![Контейнер vault]( 'Контейнер vault')
+![Контейнер vault](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/vault_container.png 'Контейнер vault')
 
 ### 4. Создание Pod'a
 Запущен minikube командой `minikube start`.  
@@ -59,32 +59,36 @@ spec:
         - containerPort: 8200
 ```
 В директории с .yaml-файлом выполнена команда `kubectl create -f firstmanifest.yaml`.
+![Pod create](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/vault_pod.png 'Create pod')
 
 Проверено, что Pod появился - `kubectl get pods`.
 
-![Pod vault]( 'Pod vault')
+![Pod vault](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/all_pods.png 'Pod vault')
 
 ### 5. Создание сервиса
 Создаем сервис для доступа к Pod - `minikube kubectl -- expose pod vault --type=NodePort --port=8200`.
 
-![Service vault]( 'Service vault')
+![Service vault](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/service_vault.png 'Service vault')
 
 Перенаправляем трафик с Pod на локальный - `minikube kubectl -- port-forward service/vault 8200:8200`.
 
-![Port-forward]( 'Port-forward')
+![Port-forward](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/forward_port.png 'Port-forward')
 
 Перешли на страницу авторизации Vault `http://localhost:8200`:
 
-![Vault page]( 'Vault page')
+![Vault page](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/vault_web.png 'Vault page')
 
 ### 6. Поиск токена
 Чтобы найти токен для авторизации, открываем второй терминал и используем команду `minikube kubectl -- logs service/vault`.
 
 Получили следующий токен:
 
-![Successful authorization]( 'Successful authorization')
+![Token](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/token.png 'Token')
+
+С использованием данного токена выполнили авторизацию:
+![Successful authorization](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/success_auth.png 'Successful authorization')
 
 Работа выполнена - остановили узел командой `minikube stop`.
 
 ### Диаграмма
-
+![Diagram](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/diagram.png 'Diagram')
