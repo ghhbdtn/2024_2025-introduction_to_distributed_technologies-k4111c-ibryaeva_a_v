@@ -42,7 +42,7 @@ data:
 
 Проверено, что появился ConfigMap командой `kubectl get configmaps`.
 
-![configmap]( 'configmap')
+![configmap](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/configmaps.png 'configmap')
 
 ### 2. Создание ReplicaSet
 Создан манифест для ReplicaSet:
@@ -88,7 +88,7 @@ spec:
 
 Проверено, что появился контроллер командой `kubectl get rs`.
 
-![replicaset]( 'replicaset')
+![replicaset](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/replicasets.png 'replicaset')
 
 ### 3. Создание сервиса
 Для создания Inngress ресурса потребуется сервис, поэтому написан манифест для сервиса:
@@ -120,20 +120,20 @@ spec:
 Сервис создан командой `kubectl create -f lab3-service.yaml`. 
 Проверено, что появился сервис командой `kubectl get services`.
 
-![service]( 'service')
+![service](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/services.png 'service')
 
 ### 4. Генерация TLS
-Для генерации TLS сертификата использована утилита [OpenSSL](https://losst.pro/sozdanie-sertifikata-openssl). [Скачиваем по ссылке](https://slproweb.com/products/Win32OpenSSL.html).
+Для генерации TLS сертификата использована утилита [OpenSSL](https://losst.pro/sozdanie-sertifikata-openssl).
 
 Сгенерированы приватный ключ и сертификат командой `openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out lab3-frontend.crt -keyout lab3-frontend.key -subj "/CN=lab3-frontend.iav"`. 
 Опция `-out` указывает на имя файла для сохранения ключа, а число `2048` - размер ключа в битах (по умолчанию 512).
 
 В опции `-subj` указано доменное имя, по которому с помощью Ingress, мы будем заходить на сервер - `lab3-frontend.iav`.
-
+![Key](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/openssl.png 'key')
 ### 5. Создание Secret
 Создаем секрет командой - `kubectl -- create secret tls lab3-frontend-tls --key lab3-frontend.key --cert lab3-frontend.crt`.
 
-![secret]( 'secret')
+![secret](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/secret.png 'secret')
 
 ### 6. Создание Ingress
 
@@ -178,21 +178,23 @@ spec:
 > After the addon is enabled, please run "minikube tunnel" and your ingress resources would be available at "127.0.0.1"
 
 Соответственно, добавляем **IP адрес ingress** и **FQDN**, то есть `127.0.0.1 lab3-frontend.iav` в [hosts файл](), который лежит по пути: `C:\Windows\System32\drivers\etc`.
+![hosts](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/localhost.png 'hosts')
 
 Создана точка входа в кластер minikube командой `kubectl create -f frontend-ingress.yaml`.
 
 Проверено, что появился Ingress командой `kubectl get ingress`.
 
-![ingress create]( 'ingress create')
+![ingress create](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/ingresses.png 'ingress create')
 
 Подключились к Ingress командой `minikube tunnel`.
 
 При открытии страницы `https://lab3-frontend.iav/`, видны **параметры**, переданные через ConfigMap:
 
-![web]('web')
+![web](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/localhost.png 'web')
 
 Данные сертификата:
 
-![cert check]( 'cert check')
+![cert check](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/cert.png 'cert check')
 
 ### Диаграмма
+![diagram](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/diagram.png 'diagram')
