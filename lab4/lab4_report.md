@@ -20,9 +20,9 @@
 
 ---
 
-## Ход работы и мои замечания
+## Ход работы
 
-### Calico и Multi-Node Clusters
+### 1. Calico и Multi-Node Clusters
 При запуске minikube устанавливаем [плагин](https://projectcalico.docs.tigera.io/getting-started/kubernetes/minikube) `CNI=calico`, режим работы `Multi-Node Clusters` и разворачиваем [2 Node](https://minikube.sigs.k8s.io/docs/tutorials/multi_node/) командой:
 
 ```
@@ -40,7 +40,7 @@ kubectl get pods -l k8s-app=calico-node -A
 
 ![get_pods]( 'get_pods')
 
-### calicoctl и IPPool
+### 2. calicoctl и IPPool
 Для назначения IP адресов в Calico необходимо написать манифест для **IPPool** ресурса.
 
 С помощью IPPool можно создать **IP-pool (блок IP-адресов)**, который выделяет IP-адреса только для узлов с определенной **меткой (label)**.
@@ -103,7 +103,7 @@ kubectl exec -i -n kube-system calicoctl -- /calicoctl --allow-version-mismatch 
 
 ![ippools]( 'ippools')
 
-### Deployment и Service
+### 3. Deployment и Service
 Манифест для развертывания берем из 2 лабораторной работы и заменяем метку на `lab4-frontend`.
 
 Также написан манифест сервиса:
@@ -134,14 +134,14 @@ kubectl apply -f lab4-deployment.yaml -f lab4-service.yaml
 
 ![pods_ip]( 'pods_ip')
 
-### Проброс порта
+### 3. Проброс порта
 Проброшен порт для подключения к сервису через браузер командой: `kubectl port-forward service/lab4-service 8200:3000`.
 
 При переходе по ссылке: `http://localhost:8200/`, видим следующее:
 
 ![browser]( 'browser')
 
-### Попингуем?
+### 4. Ping
 
 Выполнена команда 'ping' с контейнера `lab4-deployment-757648f768-9d5c4` контейнеру с IP-адресом: `ping 192.168.0.69` с помощью команды:
 
