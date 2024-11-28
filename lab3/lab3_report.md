@@ -140,8 +140,6 @@ minikube addons enable ingress
 minikube addons enable ingress-dns
 ```
 
-![ingress on]( 'ingress on')
-
 Создан манифест для Ingress:
 
 ```yaml
