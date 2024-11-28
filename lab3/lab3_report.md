@@ -171,7 +171,7 @@ spec:
                   number: 3000
 ```
 
-В полях **hosts** и **host** указано **FQDN** - `lab3-frontend-tls`, согласно замечанию из документации:
+В полях **hosts** и **host** указано **FQDN** - `lab3-frontend.iav`.
 
 При активации Ingress было написано:
 
