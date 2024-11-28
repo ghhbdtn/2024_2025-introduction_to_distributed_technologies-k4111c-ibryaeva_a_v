@@ -90,7 +90,6 @@ kubectl delete ippools default-ipv4-ippool
 ```
 kubectl exec -i -n kube-system calicoctl -- /calicoctl --allow-version-mismatch create -f - < lab4-ippool.yaml
 ```
-![create_ippools]( 'create_ippools')
 
 Проверено, что появилось два pool'а командой:
 ```
