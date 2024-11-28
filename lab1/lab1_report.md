@@ -40,6 +40,7 @@
 ### 4. Создание Pod'a
 Запущен minikube командой `minikube start`.  
 Проверено, что появился узел - `kubectl get nodes`.
+!['Nodes'](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab1/images/kubectl_nodes.png 'Nodes')
 
 Создан **manifest file**, в котором будет описан под:
 
