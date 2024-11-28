@@ -126,7 +126,9 @@ kubectl apply -f lab4-deployment.yaml -f lab4-service.yaml
 
 Проверено, что появились развертывание и сервис: `kubectl get deployments`, `kubectl get services`.
 
-![create_deployment_and_service](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/ippools.png https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/services.png 'create_deployment_and_service')
+![create_deployment_and_service](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/ippools.png 'create_deployment_and_service')
+
+![create_deployment_and_service](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/services.png 'create_deployment_and_service')
 
 Проверены IP-адреса созданных Pod'ов: `kubectl get pods -o wide`.
 
