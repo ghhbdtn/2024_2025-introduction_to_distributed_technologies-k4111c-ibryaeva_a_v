@@ -31,14 +31,14 @@ minikube start --network-plugin=cni --cni=calico --nodes 2 -p multinode-demo
 
 Проверяем, что запустились 2 Node: `kubectl get nodes`.
 
-![get_nodes]( 'get_nodes')
+![get_nodes](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/get_nodes.png 'get_nodes')
 
 Чтобы проверить работу CNI Calico, посмотрим Pod'ы с меткой **calico-node**:
 ```
 kubectl get pods -l k8s-app=calico-node -A
 ```
 
-![get_pods]( 'get_pods')
+![get_pods](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/get_pods.png 'get_pods')
 
 ### 2. calicoctl и IPPool
 Для назначения IP адресов в Calico необходимо написать манифест для **IPPool** ресурса.
@@ -88,8 +88,6 @@ kubectl exec -i -n kube-system calicoctl -- /calicoctl --allow-version-mismatch 
 kubectl delete ippools default-ipv4-ippool
 ```
 
-![delete_default_ippool]( 'delete_default_ippool')
-
 Созданы IPPool'ы следующей командой:
 ```
 kubectl exec -i -n kube-system calicoctl -- /calicoctl --allow-version-mismatch create -f - < lab4-ippool.yaml
@@ -101,7 +99,7 @@ kubectl exec -i -n kube-system calicoctl -- /calicoctl --allow-version-mismatch 
 kubectl exec -i -n kube-system calicoctl -- /calicoctl --allow-version-mismatch get ippool -o wide
 ```
 
-![ippools]( 'ippools')
+![ippools](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/ippools.png 'ippools')
 
 ### 3. Deployment и Service
 Манифест для развертывания берем из 2 лабораторной работы и заменяем метку на `lab4-frontend`.
@@ -128,18 +126,18 @@ kubectl apply -f lab4-deployment.yaml -f lab4-service.yaml
 
 Проверено, что появились развертывание и сервис: `kubectl get deployments`, `kubectl get services`.
 
-![create_deployment_and_service]( 'create_deployment_and_service')
+![create_deployment_and_service](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/ippools.png https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/services.png 'create_deployment_and_service')
 
 Проверены IP-адреса созданных Pod'ов: `kubectl get pods -o wide`.
 
-![pods_ip]( 'pods_ip')
+![pods_ip](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/pods_ip.png 'pods_ip')
 
 ### 3. Проброс порта
 Проброшен порт для подключения к сервису через браузер командой: `kubectl port-forward service/lab4-service 8200:3000`.
 
 При переходе по ссылке: `http://localhost:8200/`, видим следующее:
 
-![browser]( 'browser')
+![browser](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/web.png 'browser')
 
 ### 4. Ping
 
@@ -149,7 +147,7 @@ kubectl apply -f lab4-deployment.yaml -f lab4-service.yaml
 kubectl exec -ti lab4-deployment-757648f768-9d5c4 -- sh
 ```
 
-![ping_1]( 'ping_1')
+![ping_1](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/ping1.png 'ping_1')
 
 Чтобы выйти из контейнера, использована команда `exit`.
 
@@ -159,6 +157,7 @@ kubectl exec -ti lab4-deployment-757648f768-9d5c4 -- sh
 kubectl exec -ti lab4-deployment-757648f768-p5qq8 -- sh
 ```
 
-![ping_2]( 'ping_2')
+![ping_2](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/ping2.png 'ping_2')
 
 ### Диаграмма
+![diagram](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab4/images/diagram.png 'diagram')
