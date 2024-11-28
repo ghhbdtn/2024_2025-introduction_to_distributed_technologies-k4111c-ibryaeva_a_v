@@ -178,6 +178,7 @@ spec:
 > After the addon is enabled, please run "minikube tunnel" and your ingress resources would be available at "127.0.0.1"
 
 Соответственно, добавляем **IP адрес ingress** и **FQDN**, то есть `127.0.0.1 lab3-frontend.iav` в [hosts файл](), который лежит по пути: `C:\Windows\System32\drivers\etc`.
+
 ![hosts](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/localhost.png 'hosts')
 
 Создана точка входа в кластер minikube командой `kubectl create -f frontend-ingress.yaml`.
@@ -190,7 +191,7 @@ spec:
 
 При открытии страницы `https://lab3-frontend.iav/`, видны **параметры**, переданные через ConfigMap:
 
-![web](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/localhost.png 'web')
+![web](https://github.com/ghhbdtn/2024_2025-introduction_to_distributed_technologies-k4111c-ibryaeva_a_v/blob/master/lab3/images/web.png 'web')
 
 Данные сертификата:
 
