@@ -113,10 +113,6 @@ spec:
 
 > Доступны только порты 30000–32767, пусть `nodePort` 30555.
 
-Согласно [документации на Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), этот ресурс работает с сервисами типа `NodePort` или `LoadBalancer`, поэтому указываем в поле `type` один из этих типов.
-
-> Note: A Service can map any incoming port to a targetPort. By default and for convenience, the `targetPort` is set to **the same value** as the `port` field.
-
 Сервис создан командой `kubectl create -f lab3-service.yaml`. 
 Проверено, что появился сервис командой `kubectl get services`.
 
