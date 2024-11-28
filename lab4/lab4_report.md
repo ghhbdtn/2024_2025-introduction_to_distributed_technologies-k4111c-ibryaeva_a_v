@@ -76,8 +76,6 @@ spec:
 
 Чтобы применить манифест для IPPool, надо установить **calicoctl**, для этого скачаем [config-файл](https://github.com/projectcalico/calico/blob/master/manifests/calicoctl.yaml) с официального репозитория и выполним команду: `kubectl create -f calicoctl.yaml`.
 
-![calicoctl_created]( 'calicoctl_created')
-
 Перед тем, как добавить собственные IPPool'ы, проверим созданные по-умолчанию:
 ```
 kubectl exec -i -n kube-system calicoctl -- /calicoctl --allow-version-mismatch get ippools -o wide
