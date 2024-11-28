@@ -4,7 +4,7 @@
 #### Year: 2024/2025
 #### Group: K4111c
 #### Author: Ibryaeva Alina Vadimovna
-#### Lab: Lab3
+#### Lab: Lab4
 #### Date of create: 24.11.2024
 #### Date of finished: xx.xx.2024
 
