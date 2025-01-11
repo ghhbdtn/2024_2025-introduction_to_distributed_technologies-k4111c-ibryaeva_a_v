@@ -6,7 +6,7 @@
 #### Author: Ibryaeva Alina Vadimovna
 #### Lab: Lab1
 #### Date of create: 24.11.2024
-#### Date of finished: xx.xx.2024
+#### Date of finished: 28.11.2024
 
 ---
 
